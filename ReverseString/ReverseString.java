@@ -1,4 +1,3 @@
-import java.util.Collections;
 import java.util.Stack;
 
 public class ReverseString {
@@ -10,6 +9,8 @@ public class ReverseString {
     ReverseString(String s){
         this.stringToRevers=s;
     }
+
+    //Uses only a char array, printing from the last element to the first
     public void impl1(){
         char[] reverse=stringToRevers.toCharArray();
 
@@ -19,12 +20,15 @@ public class ReverseString {
         System.out.println(" ");
     }
 
+    //Uses StringBuilder's reverse function
     public StringBuilder impl2(){
         StringBuilder rString = new StringBuilder();
         rString.append(stringToRevers);
         rString.reverse();
         return rString;
     }
+
+    //Uses StringBuffer reverse function
     public void impl3(){
         StringBuffer s= new StringBuffer();
         s.append(stringToRevers);
@@ -32,6 +36,7 @@ public class ReverseString {
         System.out.println(s);
     }
 
+    //Final method uses Stack in a FILO approach
     public void impl4(){
         Stack <Character> word= new Stack<Character>();
         for(char c: stringToRevers.toCharArray()){
@@ -58,7 +63,5 @@ public class ReverseString {
 
         ReverseString obj4= new ReverseString("Does this even work?");
         obj4.impl4();
-
-
     }
 }

@@ -16,26 +16,9 @@ public class ArraySort {
         this.myArray=newMyArray;
     }
 
-    //Checks the current element with the previous, alters result until last element is checked
-    public void isArrayAscending(){
-        boolean result=false;
-        for (int i=1;i<size;i++){
-            if (i==myArray.length-1){
-                if(myArray[i-1]<myArray[i]){
-                    result=true;
-                }
-            }else{
-                if (myArray[i-1]<myArray[i] && myArray[i]<myArray[i++]){
-                    result=true;
-                }
-            }
-        }
-        System.out.println(result);;
-    }
-
    //Checks whether next element is smaller than current element,if true immediately returns false 
     public boolean isAscend(){
-        for (int i=0; i < size;i++) {
+        for (int i=0; i < size-1;i++) {
             if (myArray[i] > myArray[i+1]) {
                 return false;
             }
@@ -43,12 +26,18 @@ public class ArraySort {
         return true;
     }
 
-
 public static void main (String [] args){
-        ArraySort obj1 = new ArraySort();
-        obj1.isArrayAscending();
+        Scanner in =new Scanner (System.in);
+        System.out.println("Enter size of array");
+        int arrSize=in.nextInt();
+        System.out.println("Enter elements of the array ");
+        int [] newArray= new int [arrSize];
+        for(int i=0;i<arrSize;i++){
+            newArray[i]=in.nextInt();
+        }
+        in.close();
 
-        ArraySort obj2= new ArraySort(4,new int[]{1,2,3,0});
+        ArraySort obj2 = new ArraySort(arrSize,newArray);
         System.out.println(obj2.isAscend());
     }
 }

@@ -21,7 +21,7 @@ class MakingChanges{
         p1.age=20;
         p2.name="Mary";
         p2.age=39;
-        changeIdentities(p1,p2);
+        MakingChanges.changeIdentities(p1,p2);
 
         Person p3= new Person();
         Person p4= new Person();
@@ -29,6 +29,6 @@ class MakingChanges{
         p3.age=19;
         p4.name="Vaughn";
         p4.age=24;
-        changeIdentities(p3,p4);
+        MakingChanges.changeIdentities(p3,p4);
     }
 }

@@ -18,10 +18,9 @@ class AccountServiceImpl implements AccountService{
             if (userAccount.getId() == id) {
                 System.out.println ("Record(s) Found\nAccount ID: "+id+"\nAccount Owner: "+
                         userAccount.getOwner().getFirstName() + " "+ userAccount.getOwner().getLastName() );
-                break;
+                return userAccount;
             }
         }
-
         return null;
     }
 

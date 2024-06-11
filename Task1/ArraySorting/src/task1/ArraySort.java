@@ -1,5 +1,8 @@
 package task1;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 
 public class ArraySort {
@@ -27,17 +30,25 @@ public class ArraySort {
     }
 
 public static void main (String [] args){
-        Scanner in =new Scanner (System.in);
-        System.out.println("Enter size of array");
-        int arrSize=in.nextInt();
-        System.out.println("Enter elements of the array ");
-        int [] newArray= new int [arrSize];
-        for(int i=0;i<arrSize;i++){
-            newArray[i]=in.nextInt();
+        try (Scanner in =new Scanner (System.in);){
+            System.out.println("Enter size of array");
+            int arrSize=in.nextInt();
+            int[] newArray= new int [arrSize];
+            in.nextLine();
+            System.out.println("Enter elements of the array ");
+            String [] elements = in.nextLine().split(" ");
+            for(int i=0;i< elements.length;i++){
+                newArray[i]= Integer.parseInt(elements[i]);
+            }
+            in.close();
+            ArraySort obj2 = new ArraySort(arrSize,newArray);
+            System.out.println(obj2.isAscend());
+        }catch (ArrayIndexOutOfBoundsException arr){
+            System.err.println("Number of elements entered does not match size of array specified");
+            arr.printStackTrace();
         }
-        in.close();
 
-        ArraySort obj2 = new ArraySort(arrSize,newArray);
-        System.out.println(obj2.isAscend());
+
+
     }
 }
